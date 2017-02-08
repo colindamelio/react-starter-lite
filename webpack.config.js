@@ -1,5 +1,7 @@
 module.exports = {
-  entry: './entry.js',
+  entry: {
+    app: './app', // reads app/index.js
+  },
   output: {
     path: __dirname,
     filename: 'bundle.js'
@@ -25,4 +27,4 @@ module.exports = {
   }
 };
 
-// webpack-dev-server --progress --color --watch
+// npm run dev
