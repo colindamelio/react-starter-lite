@@ -1,19 +1,20 @@
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const extractCSS = new ExtractTextPlugin('[name].css');
+
 module.exports = {
   entry: {
     app: './app', // reads app/index.js
   },
   output: {
     path: __dirname,
-    filename: 'bundle.js'
+    filename: '[name].js',
+    chunkFilename: '[id].js',
   },
   module: {
     loaders: [
       {
         test: /\.css$/,
-        use: [
-          {loader: 'style-loader'},
-          {loader: 'css-loader'},
-        ],
+        use: extractCSS.extract({ fallback: 'style-loader', use: 'css-loader'}),
       },
       { test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
@@ -24,7 +25,10 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    extractCSS,
+  ]
 };
 
 // npm run dev
