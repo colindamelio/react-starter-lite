@@ -1,11 +1,8 @@
-import './style.css';
 import React from 'react';
 import { render } from 'react-dom';
-import Header from './componenets/header';
 
-render(
-  <Header />,
+import './style.css';
 
-  
-  document.getElementById('root-app')
-);
+import Homepage from './componenets/homepage';
+
+render(<Homepage />, document.getElementById('root-app'));
