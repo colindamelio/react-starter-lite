@@ -3,6 +3,6 @@ import { render } from 'react-dom';
 
 import './style.css';
 
-import Homepage from './componenets/homepage';
+import Homepage from './components/homepage';
 
 render(<Homepage />, document.getElementById('root-app'));
